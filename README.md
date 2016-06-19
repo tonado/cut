@@ -943,8 +943,8 @@ TestOptions::TestOptions() : desc("cut")
     });
     
     // default value
-    cpo["color"]  = "yes";
-    cpo["repeat"] = "1";
+    opt["color"]  = "yes";
+    opt["repeat"] = "1";
 }
 ```
 

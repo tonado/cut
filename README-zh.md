@@ -6,12 +6,6 @@ Cut是一个简单的、可扩展的、使用C\+\+11实现的xUnit测试框架�
 
 ## 安装
 
-### GitHub
-
-- 地址：[https://github.com/horance-liu/cut](https://github.com/ccut/cut)
-- 作者：刘光聪
-- Email：[horance@outlook.com](horance@outlook.com)
-
 ### 编译环境
 
 支持的平台:

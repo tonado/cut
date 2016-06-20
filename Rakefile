@@ -36,7 +36,7 @@ DEPS = %w[cub cum cpo]
 
 task :deps_clone do
   system "rm -rf lib/cub"
-  system "git clone https://github.com/ccup/cub.git lib/cub"
+  system "git clone https://github.com/ccock/cub.git lib/cub"
 end
 
 task :deps_uninstall do

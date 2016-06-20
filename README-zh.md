@@ -23,7 +23,7 @@ Cut是一个简单的、可扩展的、使用C\+\+11实现的xUnit测试框架�
 ##### 克隆Cut
 
 ```bash
-$ git clone https://github.com:ccup/cut.git
+$ git clone https://github.com:ccock/cut.git
 ```
 
 假设，`${CUT_HOME}`是`cut`所在克隆所在目录，下文如果未特殊说明，当前路径默认为`${CUT_HOME}`。
@@ -33,7 +33,7 @@ $ git clone https://github.com:ccup/cut.git
 - 克隆Cub
 
 ```bash
-$ git clone https://github.com/ccup/cub.git lib/cub
+$ git clone https://github.com/ccock/cub.git lib/cub
 $ cd lib/cub && mkdir build && cd build
 $ cmake .. && make
 $ sudo make install 
@@ -223,10 +223,10 @@ target_link_libraries(quantity-test cut cum cpo cub)
 
 其中：
 
-- [cut](https://github.com/ccup/cut): C++ Unified Test Framework.
-- [cub](https://github.com/ccup/cub): C++ Unified Base Library.
-- [cpo](https://github.com/ccup/cut): C++ Programm Options Library.
-- [cum](https://github.com/ccup/cut): C++ Universal Matchers Library.
+- [cut](https://github.com/ccock/cut): C++ Unified Test Framework.
+- [cub](https://github.com/ccock/cub): C++ Unified Base Library.
+- [cpo](https://github.com/ccock/cut): C++ Programm Options Library.
+- [cum](https://github.com/ccock/cut): C++ Universal Matchers Library.
 
 ##### 构建
 

@@ -1,6 +1,6 @@
 # CUT: C++ Unified Test Framework
 
-[Cut](http://github.com/ccup/cut) is a simple, practical, and scalable xUnit Test Framework in Modern C++11. It's inspiration comes from the famous testing framework JUnit in Java community.
+[Cut](http://github.com/ccock/cut) is a simple, practical, and scalable xUnit Test Framework in Modern C++11. It's inspiration comes from the famous testing framework JUnit in Java community.
 
 C/C++ are different languages from most modern ones. Writing tests for them has some very specific challenges. Therefore, simply clone ideas from xUnit frameworks for other languages does not work the best. Programmers have to suffer accidental complexities brought by most of existing frameworks.
 
@@ -17,16 +17,16 @@ Supported Compilers:
 * [MSVC] not supported.
 
 Dependences:
-* [cub](https://github.com/ccup/cub): C++ Unified Base Library.
-* [cpo](https://github.com/ccup/cut): C++ Programm Options Library.
-* [cum](https://github.com/ccup/cut): C++ Universal Matchers Library.
+* [cub](https://github.com/ccock/cub): C++ Unified Base Library.
+* [cpo](https://github.com/ccock/cut): C++ Programm Options Library.
+* [cum](https://github.com/ccock/cut): C++ Universal Matchers Library.
 
 ## Installing
 
 ### Clone cut
 
 ```bash
-$ git clone https://github.com:ccup/cut.git
+$ git clone https://github.com:ccock/cut.git
 ```
 
 `${CUT_HOME}` is file path of cloned cut form github.
@@ -37,7 +37,7 @@ $ git clone https://github.com:ccup/cut.git
 
 ```bash
 $ cd cut/lib
-$ git clone https://github.com/ccup/cub.git
+$ git clone https://github.com/ccock/cub.git
 $ cd cub && mkdir build && cd build
 $ cmake .. && make
 $ sudo make install 
@@ -216,10 +216,10 @@ add_executable(quantity-test ${all_files})
 target_link_libraries(quantity-test cut cum cpo cub)
 ```
 
-- [cut](https://github.com/ccup/cut): C++ Unified Test Framework.
-- [cub](https://github.com/ccup/cub): C++ Unified Base Library.
-- [cpo](https://github.com/ccup/cut): C++ Programm Options Library.
-- [cum](https://github.com/ccup/cut): C++ Universal Matchers Library.
+- [cut](https://github.com/ccock/cut): C++ Unified Test Framework.
+- [cub](https://github.com/ccock/cub): C++ Unified Base Library.
+- [cpo](https://github.com/ccock/cut): C++ Programm Options Library.
+- [cum](https://github.com/ccock/cut): C++ Universal Matchers Library.
 
 ##### Build
 

@@ -4,12 +4,12 @@ def exec(cmd)
   system "#{cmd}" or exit
 end
 
-def isMacOS?
+def mac_os?
   (RbConfig::CONFIG['host_os'] =~ /darwin|mac os/) != nil
 end
 
 def compiler 
-  isMacOS? ? 'CC=/usr/bin/clang CXX=/usr/bin/clang++' : ''
+  mac_os? ? 'CC=/usr/bin/clang CXX=/usr/bin/clang++' : ''
 end
 
 def do_build(path, test, action)
@@ -75,4 +75,5 @@ task :install => :uninstall do
 end
 
 task :all => [:clone_deps, :install_deps, :install, :test_deps, :test]
+
 task :default => :all

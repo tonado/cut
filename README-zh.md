@@ -8,19 +8,17 @@ Cut是一个简单的、可扩展的、使用C\+\+11实现的xUnit测试框架�
 
 ### 编译环境
 
-支持的平台:
-* [MAC OS X] supported
-* [Linux] supported
-* [Windows] not supported
+- 支持的平台:
+  * [MAC OS X] supported
+  * [Linux] supported
+  * [Windows] not supported
 
-支持的编译器:
-* [CLANG] 3.4 or later.
-* [GCC] 4.8 or later.
-* [MSVC] not supported.
+- 支持的编译器:
+  * [CLANG] 3.4 or later.
+  * [GCC] 4.8 or later.
+  * [MSVC] not supported.
 
-### 安装Cut
-
-##### 克隆Cut
+### 克隆Cut
 
 ```bash
 $ git clone https://github.com:ccock/cut.git
@@ -28,9 +26,83 @@ $ git clone https://github.com:ccock/cut.git
 
 假设，`${CUT_HOME}`是`cut`所在克隆所在目录，下文如果未特殊说明，当前路径默认为`${CUT_HOME}`。
 
+### 安装Cut
+
+Cut支持三种方式安装：
+
+- Gradle
+- Rake
+- 手动安装与测试
+
+因为Cut能够测试自身，为此强烈**推荐**使用`Gradle`，或者`Rake`安装`Cut`，简单，便捷，不易出错。
+
+### 使用Gradle
+
+使用`Gradle`可简化`Cut`的依赖管理，方便`Cut`的构建，测试，并且使得`Cut`自我测试变得更加方便自如，只需执行如下一条命令即可。
+
+> 使用`./gradlew`，无需事先安装`Gradle` 或者`Groovy`。但是，必须预先安装`JVM`，并配置好`JAVA_HOME`环境变量。
+
+```bash
+$ ./gradlew    # clone_deps, install_deps, install, test_deps, test
+```
+
+##### Gradle任务表
+
+- Cut的Rake任务：
+
+```bash
+$ ./gradlew             # clone_deps, install_deps, install, test_deps, test
+$ ./gradlew install     # install
+$ ./gradlew test        # install, test 
+$ ./gradlew uninstall   # uninstall
+$ ./gradlew clean       # remove temp directory, and uninstall
+```
+
+- 依赖管理的Rake任务:
+
+```bash
+$ ./gradlew clone_deps       # clone all dependencies
+$ ./gradlew install_deps     # clone, ant install all dependencies
+$ ./gradlew test_deps        # clone, install, and test all dependencies
+$ ./gradlew uninstall_deps   # uninstall all dependencies
+$ ./gradlew clean_deps       # remove temp directory, and uninstall all dependencies
+```
+
+### 使用Rake安装
+
+使用`Rake`可简化`Cut`的依赖管理，方便`Cut`的构建，测试，并且使得`Cut`自我测试变得更加方便自如，只需执行如下一条命令即可。
+
+```bash
+$ rake    # clone_deps, install_deps, install, test_deps, test
+```
+
+##### Rake任务表
+
+- Cut的Rake任务：
+
+```bash
+$ rake             # clone_deps, install_deps, install, test_deps, test
+$ rake install     # install
+$ rake test        # install, test 
+$ rake uninstall   # uninstall
+$ rake clean       # remove temp directory, and uninstall
+```
+
+- 依赖管理的Rake任务:
+
+```bash
+$ rake clone_deps       # clone all dependencies
+$ rake install_deps     # clone, ant install all dependencies
+$ rake test_deps        # clone, install, and test all dependencies
+$ rake uninstall_deps   # uninstall all dependencies
+$ rake clean_deps       # remove temp directory, and uninstall all dependencies
+```
+
+### 手动安装和测试Cut
+
 ##### 安装依赖
 
-- 克隆Cub
+- 安装Cub
 
 ```bash
 $ git clone https://github.com/ccock/cub.git lib/cub
@@ -39,7 +111,7 @@ $ cmake .. && make
 $ sudo make install 
 ```
 
-- 安装`cum`：
+- 安装Cum
 
 ```bash
 $ cd lib/cum && mkdir build && cd build
@@ -47,7 +119,7 @@ $ cmake .. && make
 $ sudo make install 
 ```
 
-- 安装`cpo`：
+- 安装Cpo
 
 ```bash
 $ cd lib/cpo && mkdir build && cd build
@@ -55,7 +127,7 @@ $ cmake .. && make
 $ sudo make install 
 ```
 
-- 安装`cut`：
+- 安装Cut
 
 ```bash
 $ mkdir build && cd build
@@ -89,86 +161,12 @@ $ cmake -DENABLE_TEST=on .. && make
 $ test/cum-test
 ```
 
-- 测试cpo
+- 测试Cpo
 
 ```bash
 $ cd lib/cpo/build
 $ cmake -DENABLE_TEST=on .. && make
 $ test/cpo-test
-```
-
-### 使用Rake
-
-使用`Rake`可简化`Magelan`的依赖管理，方便`cut`的构建，测试，并且使得`cut`自我测试变得更加方便自如。
-
-##### 使用Clang
-
-- 解决依赖
-
-```bash
-$ rake deps    # clone, build, install all dependencies
-```
-
-- 安装cut 
-
-```bash
-$ rake         # build, and install cut
-```
-
-- 测试 
-
-```bash
-$ rake test         # test cut
-$ rake deps_test    # test all dependencies
-```
-
-##### 使用GCC
-
-- 解决依赖
-
-```bash
-$ rake deps_clone        # clone all dependencies
-$ rake deps_build[gcc]   # build by GCC, and install all dependencies
-```
-
-- 安装cut 
-
-```bash
-$ rake build[GCC]        # build, and install cut by GCC
-```
-
-- 测试 
-
-```bash
-$ rake test[GCC]         # test cut by GCC
-$ rake deps_test[GCC]    # test all dependencies by GCC
-```
-
-##### 任务表
-
-- Cut的Rake任务：
-
-```bash
-$ rake             # build, install cut using clang
-$ rake build       # build, install using clang
-$ rake test        # build, install, and test using clang
-$ rake build[gcc]  # build, install using gcc
-$ rake test[gcc]   # build, install, and test using gcc
-$ rake uninstall   # uninstall cut only
-$ rake clean       # remove temp directory, and uninstall cut
-```
-
-- 依赖管理的Rake任务:
-
-```bash
-$ rake deps             # clone, build, install all dependencies using clang
-$ rake deps_clone       # clone all dependencies
-$ rake deps_build       # clone, build, install all dependencies using clang
-$ rake deps_test        # clone, build, install, and test all dependencies using clang
-$ rake deps_build[gcc]  # clone, build, install all dependencies using gcc
-$ rake deps_test[gcc]   # clone, build, install, and test all dependencies using gcc
-$ rake deps_uninstall   # uninstall all dependencies
-$ rake deps_clean       # remove temp directory, and uninstall all dependencies
 ```
 
 ### 破冰之旅

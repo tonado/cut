@@ -6,24 +6,24 @@ C/C++ are different languages from most modern ones. Writing tests for them has 
 
 **Cut** is designed for simplifying efforts of programers, in terms of development, maintenance, flexibility of test management, build & run-time strategy, and others.
 
-Supported Platform:
-* [MAC OS X] supported
-* [Linux] supported
-* [Windows] not supported
+## Requirement
 
-Supported Compilers:
-* [CLANG] 3.4 or later.
-* [GCC] 4.8 or later.
-* [MSVC] not supported.
+- Supported Platform:
+  * [MAC OS X] supported
+  * [Linux] supported
+  * [Windows] not supported
 
-Dependences:
-* [cub](https://github.com/ccock/cub): C++ Unified Base Library.
-* [cpo](https://github.com/ccock/cut): C++ Programm Options Library.
-* [cum](https://github.com/ccock/cut): C++ Universal Matchers Library.
+- Supported Compilers:
+  * [CLANG] 3.4 or later.
+  * [GCC] 4.8 or later.
+  * [MSVC] not supported.
 
-## Installing
+- Dependences:
+  * [cub](https://github.com/ccock/cub): C++ Unified Base Library.
+  * [cpo](https://github.com/ccock/cut): C++ Programm Options Library.
+  * [cum](https://github.com/ccock/cut): C++ Universal Matchers Library.
 
-### Clone cut
+### Clone Cut
 
 ```bash
 $ git clone https://github.com:ccock/cut.git
@@ -31,7 +31,77 @@ $ git clone https://github.com:ccock/cut.git
 
 `${CUT_HOME}` is file path of cloned cut form github.
 
-### Install Dependencies
+## Installing
+
+Cut support 3 intalling method, and I recommend to use Gradle or Rake to install cut.
+
+- Using Gradle
+- Using Rake
+- Manual
+
+### Installing Using Gradle
+
+You can use `Gradle` to simply procedure of dependency, building, installing, and testing of cut .
+
+```bash
+$ ./gradlew    # clone_deps, install_deps, install, test_deps, test
+```
+
+##### Gradle Tasks Reference
+
+- Tasks for Cut：
+
+```bash
+$ ./gradlew             # clone_deps, install_deps, install, test_deps, test
+$ ./gradlew install     # install
+$ ./gradlew test        # install, test 
+$ ./gradlew uninstall   # uninstall
+$ ./gradlew clean       # remove temp directory, and uninstall
+```
+
+- Tasks for Dependencies::
+
+```bash
+$ ./gradlew clone_deps       # clone all dependencies
+$ ./gradlew install_deps     # clone, ant install all dependencies
+$ ./gradlew test_deps        # clone, install, and test all dependencies
+$ ./gradlew uninstall_deps   # uninstall all dependencies
+$ ./gradlew clean_deps       # remove temp directory, and uninstall all dependencies
+```
+
+### Installing Using Rake
+
+You can use Rake to simply procedure of dependency, building, installing, and testing of cut .
+
+```bash
+$ rake    # clone_deps, install_deps, install, test_deps, test
+```
+
+##### Rake Tasks Reference
+
+- Tasks for Cut：
+
+```bash
+$ rake             # clone_deps, install_deps, install, test_deps, test
+$ rake install     # install
+$ rake test        # install, test 
+$ rake uninstall   # uninstall
+$ rake clean       # remove temp directory, and uninstall
+```
+
+- Tasks for Dependencies::
+
+```bash
+$ rake clone_deps       # clone all dependencies
+$ rake install_deps     # clone, ant install all dependencies
+$ rake test_deps        # clone, install, and test all dependencies
+$ rake uninstall_deps   # uninstall all dependencies
+$ rake clean_deps       # remove temp directory, and uninstall all dependencies
+```
+
+### Manual Installing and Testing
+
+##### Clone Cub
 
 > Current Path: ${CUT_HOME}
 
@@ -43,11 +113,9 @@ $ cmake .. && make
 $ sudo make install 
 ```
 
-### Install cut
+##### Install Cut
 
-First, Install `cum`：
-
-> Current Path: `${CUT_HOME}`
+- First, Install Cum：
 
 ```bash
 $ cd lib/cum && mkdir build && cd build
@@ -55,9 +123,7 @@ $ cmake .. && make
 $ sudo make install 
 ```
 
-Second, Intall `cpo`：
-
-> Current Path: `${CUT_HOME}`
+- Second, Intall Cpo：
 
 ```bash
 $ cd lib/cpo && mkdir build && cd build
@@ -65,9 +131,7 @@ $ cmake .. && make
 $ sudo make install 
 ```
 
-At last, Install `cut`：
-
-> Current Path: `${CUT_HOME}`
+- At last, Install Cut：
 
 ```bash
 $ mkdir build && cd build
@@ -83,86 +147,6 @@ $ sudo make install
 $ cd build
 $ cmake -DENABLE_TEST=on .. && make
 $ test/cut-test
-```
-
-### Using Rake
-
-You can use Rake to simply procedure of dependency, building, installing, and testing of cut.
-
-##### Clang
-
-> Current Path: `${CUT_HOME}`
-
-- Resolve dependency
-
-```bash
-$ rake deps    # clone, build, install all dependencies
-```
-
-- Install cut 
-
-```bash
-$ rake         # build, and install cut
-```
-
-- Test 
-
-```bash
-$ rake test         # test cut
-$ rake deps_test    # test all dependencies
-```
-
-##### GCC
-
-> Current Path: `${CUT_HOME}`
-
-- Resolve dependency
-
-```bash
-$ rake deps_clone        # clone all dependencies
-$ rake deps_build[gcc]   # build by GCC, and install all dependencies
-```
-
-- Install cut 
-
-```bash
-$ rake build[GCC]        # build, and install cut by GCC
-```
-
-- Test 
-
-```bash
-$ rake test[GCC]         # test cut by GCC
-$ rake deps_test[GCC]    # test all dependencies by GCC
-```
-
-##### Tasks Reference
-
-> Current Path: `${CUT_HOME}`
-
-```bash
-$ rake             # build, install cut using clang
-$ rake build       # build, install using clang
-$ rake test        # build, install, and test using clang
-$ rake build[gcc]  # build, install using gcc
-$ rake test[gcc]   # build, install, and test using gcc
-$ rake uninstall   # uninstall cut only
-$ rake clean       # remove temp directory, and uninstall cut
-```
-
-And other task for dependencies:
-
-> Current Path: `${CUT_HOME}`
-
-```bash
-$ rake deps             # clone, build, install all dependencies using clang
-$ rake deps_clone       # clone all dependencies
-$ rake deps_build       # clone, build, install all dependencies using clang
-$ rake deps_test        # clone, build, install, and test all dependencies using clang
-$ rake deps_build[gcc]  # clone, build, install all dependencies using gcc
-$ rake deps_test[gcc]   # clone, build, install, and test all dependencies using gcc
-$ rake deps_uninstall   # uninstall all dependencies
-$ rake deps_clean       # remove temp directory, and uninstall all dependencies
 ```
 
 ## Begin the new journey

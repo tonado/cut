@@ -1,100 +1,78 @@
-def execute(cmd)
+require 'rbconfig'
+
+def exec(cmd)
   system "#{cmd}" or exit
 end
 
-def compiler clang
-  clang ? "CC=/usr/bin/clang CXX=/usr/bin/clang++" : ""
+def isMacOS?
+  (RbConfig::CONFIG['host_os'] =~ /darwin|mac os/) != nil
 end
 
-def test_switch run_test
-  "-DENABLE_TEST=#{run_test ? 'on' : 'off'}"
+def compiler 
+  isMacOS? ? 'CC=/usr/bin/clang CXX=/usr/bin/clang++' : ''
 end
 
-def cmake_cmd args
-  "#{compiler args[:clang]} cmake #{test_switch args[:test]} -DCMAKE_BUILD_TYPE=Debug .."
+def do_build(path, test, action)
+  testing = "-DENABLE_TEST=#{test}"
+  building = "-DCMAKE_BUILD_TYPE=Debug"
+  
+  prep = "mkdir -p #{path}/build && cd #{path}/build"
+  make = "#{compiler} cmake #{testing} #{building} .. && make"
+  
+  sh "#{prep} && #{make} && #{action}"
 end
 
-def do_install(path)
-  system "cd #{path}/build && sudo make install"
+def do_clean(modular)
+  system "sudo rm -rf /usr/local/include/#{modular}"
+  system "sudo rm -rf /usr/local/lib/lib#{modular}.a"
+end
+
+def do_install(path) 
+  do_build(path, "off", "sudo make install")
 end
 
 def do_test(path, modular)
-  execute "cd #{path}/build && test/#{modular}-test"
-end
-
-def do_build(path, args, &action)
-  execute "mkdir -p #{path}/build && cd #{path}/build && #{cmake_cmd args} && make" 
-  action.call
-end
-
-def do_clean(m)
-  system "sudo rm -rf /usr/local/include/#{m}"
-  system "sudo rm -rf /usr/local/lib/lib#{m}.a"
+  do_build(path, "on", "test/#{modular}-test")
 end
 
 DEPS = %w[cub cum cpo]
 
-task :deps_clone do
+task :clone_deps do
   system "rm -rf lib/cub"
-  system "git clone https://github.com/ccock/cub.git lib/cub"
+  sh "git clone https://github.com/ccock/cub.git lib/cub"
 end
 
-task :deps_uninstall do
-  DEPS.each do |m|
-    do_clean(m)
-  end
+task :uninstall_deps do
+  DEPS.each { |m| do_clean(m) }
 end
 
-task :deps_clean => :deps_uninstall do
-  DEPS.each do |m|
-    system "cd lib/#{m} && rm -rf build"
-  end 
+task :clean_deps => :uninstall_deps do
+  DEPS.each { |m| sh "cd lib/#{m} && rm -rf build" }
 end
 
-task :deps_build, [:compiler] => :deps_uninstall do |task, args| 
-  args.with_defaults(:compiler => 'clang')
-
-  DEPS.each do |m|
-    do_build("lib/#{m}", clang:args.compiler == 'clang', test:false) { 
-      do_install("lib/#{m}") 
-    }
-   end
+task :test_deps => :install_deps do
+  DEPS.each { |m| do_test("lib/#{m}", m) }
 end
 
-task :deps_test, [:compiler] => :deps_build do |task, args| 
-  args.with_defaults(:compiler => 'clang')
-
-  DEPS.each do |m|
-    do_build("lib/#{m}", clang:args.compiler == 'clang', test:true) { 
-      do_test("lib/#{m}", m) 
-    }
-   end
+task :install_deps => :uninstall_deps do
+  DEPS.each { |m| do_install("lib/#{m}") }
 end
-
-task :deps => [:deps_clone, :deps_build]
 
 task :uninstall do
-  do_clean(:cut)
-end 
-
-task :build, [:compiler] => :uninstall do |task, args| 
-  args.with_defaults(:compiler => 'clang')
-  
-  do_build(".", clang:args.compiler == 'clang', test:false) { 
-    do_install(".") 
-  }
+  do_clean :cut
 end
 
-task :test, [:compiler] => :build do |task, args|
-  args.with_defaults(:compiler => 'clang')
-
-  do_build(".", clang:args.compiler == 'clang', test:true)  { 
-    do_test(".", :cut) 
-  }
+task :clean => :uninstall do
+  sh 'rm -rf build'
 end
 
-task :clean => :uninstall do |task|
-  system "rm -rf build"
+task :test => :install do
+  do_test('.', :cut)
 end
 
-task :default => :build
+task :install => :uninstall do
+  do_install('.')
+end
+
+task :all => [:clone_deps, :install_deps, :install, :test_deps, :test]
+task :default => :all

@@ -2,6 +2,7 @@ tmp/
 output/
 build/
 .idea/
+.gradle/
 *.xml
 lib/cub/
 *.swp

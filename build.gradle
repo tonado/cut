@@ -1,0 +1,112 @@
+group = 'org.cock'
+version = '1.0.0'
+buildDir = 'dist'
+
+private def sh(String cmd) {
+  println(cmd)
+  exec(cmd, new File(System.properties.'user.dir'))
+}
+
+private def exec(String cmd, File dir) {
+  Process process = makeProcess(cmd, dir)
+  process.inputStream.eachLine { println it }
+  process.waitFor()
+  process.exitValue() != 0 ? System.exit(process.exitValue()) : 0
+}
+
+private def makeProcess(String cmd, File dir) {
+  new ProcessBuilder(toShell(cmd))
+    .directory(dir)
+    .redirectErrorStream(true) 
+    .start()
+}
+
+private def toShell(String cmd) {
+  ["zsh", "-c", cmd] as String[]
+}
+
+private def do_clean(module) {
+  sh "sudo rm -rf /usr/local/include/${module}"
+  sh "sudo rm -rf /usr/local/lib/lib${module}.a"
+}
+
+private def compiler() { 
+  def isMacOS = System.properties['os.name'].contains('Mac OS')
+  isMacOS ? 'CC=/usr/bin/clang CXX=/usr/bin/clang++' : ''
+}
+
+private def do_build(String path, String test, String type, String action) {
+  def testing = "-DENABLE_TEST=$test"
+  def building = "-DCMAKE_BUILD_TYPE=$type"
+  
+  def prep = "mkdir -p ${path}/build && cd ${path}/build"
+  def make = "${compiler()} cmake $testing $building .. && make"
+  
+  sh "$prep && $make && $action"
+}
+
+private def do_install(String path) {
+  do_build(path, "off", "Release", "sudo make install")
+}
+
+private def do_test(String path, String module) {
+  do_build(path, "on", "Debug", "test/${module}-test")
+}
+
+final DEPS = ['cub', 'cum', 'cpo'] as String[]
+
+task clone_deps << {
+  sh "rm -rf lib/cub"
+  sh "git clone https://github.com/ccock/cub.git lib/cub"
+}
+
+task uninstall_deps << {
+  DEPS.each { do_clean(it) }
+}
+
+task clean_deps(dependsOn: 'uninstall_deps') << {
+  DEPS.each { sh "cd lib/$it && rm -rf build" }
+}
+
+task test_deps(dependsOn: 'install_deps') << {
+  DEPS.each { do_test("lib/$it", it) }
+}
+
+task install_deps(dependsOn: 'uninstall_deps') << {
+  DEPS.each { do_install("lib/$it") }
+}
+
+task uninstall << {
+  do_clean project.name
+}
+
+task clean(dependsOn: 'uninstall') << {
+  sh 'rm -rf build'
+}
+
+task test(dependsOn: 'install') << {
+  do_test('.', project.name)
+}
+
+task install(dependsOn: 'uninstall') << {
+  do_install('.')
+}
+
+task wrapper(type: Wrapper) {
+  gradleVersion = '2.14'
+}
+
+task all {
+  dependsOn clone_deps
+  dependsOn install_deps
+  dependsOn install
+  dependsOn test
+  dependsOn test_deps
+
+  install_deps.mustRunAfter(clone_deps)
+  install.mustRunAfter(install_deps)
+  test.mustRunAfter(install)
+  test_deps.mustRunAfter(install)
+}
+
+defaultTasks 'all'

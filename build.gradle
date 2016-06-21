@@ -23,7 +23,7 @@ private def makeProcess(String cmd, File dir) {
 }
 
 private def toShell(String cmd) {
-  ["zsh", "-c", cmd] as String[]
+  ["sh", "-c", cmd] as String[]
 }
 
 private def do_clean(module) {
@@ -54,7 +54,7 @@ private def do_test(String path, String module) {
   do_build(path, "on", "Debug", "test/${module}-test")
 }
 
-final DEPS = ['cub', 'cum', 'cpo'] as String[]
+def DEPS = ['cub', 'cum', 'cpo']
 
 task clone_deps << {
   exec "rm -rf lib/cub"

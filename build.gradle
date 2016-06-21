@@ -3,15 +3,16 @@ version = '1.0.0'
 buildDir = 'dist'
 
 private def sh(String cmd) {
-  println(cmd)
-  exec(cmd, new File(System.properties.'user.dir'))
+  status = exec(cmd)
+  if(status != 0) System.exit(status)
 }
 
-private def exec(String cmd, File dir) {
-  Process process = makeProcess(cmd, dir)
-  process.inputStream.eachLine { println it }
-  process.waitFor()
-  process.exitValue() != 0 ? System.exit(process.exitValue()) : 0
+private def exec(String cmd) {
+  println(cmd)
+  Process p = makeProcess(cmd, new File(System.properties.'user.dir'))
+  p.inputStream.eachLine { println it }
+  p.waitFor()
+  p.exitValue()
 }
 
 private def makeProcess(String cmd, File dir) {
@@ -26,8 +27,8 @@ private def toShell(String cmd) {
 }
 
 private def do_clean(module) {
-  sh "sudo rm -rf /usr/local/include/${module}"
-  sh "sudo rm -rf /usr/local/lib/lib${module}.a"
+  exec "sudo rm -rf /usr/local/include/${module}"
+  exec "sudo rm -rf /usr/local/lib/lib${module}.a"
 }
 
 private def compiler() { 
@@ -56,7 +57,7 @@ private def do_test(String path, String module) {
 final DEPS = ['cub', 'cum', 'cpo'] as String[]
 
 task clone_deps << {
-  sh "rm -rf lib/cub"
+  exec "rm -rf lib/cub"
   sh "git clone https://github.com/ccock/cub.git lib/cub"
 }
 

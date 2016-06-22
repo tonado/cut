@@ -35,9 +35,16 @@ $ git clone https://github.com:ccock/cut.git
 
 Cut support 3 intalling method, and I recommend to use Gradle or Rake to install cut.
 
+- Online
 - Using Gradle
 - Using Rake
 - Manual
+
+### Online Installing
+
+```bash
+$ sh -c "$(curl -fsSL https://raw.github.com/ccock/cut/master/install.sh)"
+```
 
 ### Installing Using Gradle
 

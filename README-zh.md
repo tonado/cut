@@ -30,11 +30,18 @@ $ git clone https://github.com:ccock/cut.git
 
 Cut支持三种方式安装：
 
+- 在线安装
 - Gradle
 - Rake
 - 手动安装与测试
 
 因为Cut能够测试自身，为此强烈**推荐**使用`Gradle`，或者`Rake`安装`Cut`，简单，便捷，不易出错。
+
+### 在线安装
+
+```bash
+$ sh -c "$(curl -fsSL https://raw.github.com/ccock/cut/master/install.sh)"
+```
 
 ### 使用Gradle
 

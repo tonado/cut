@@ -46,7 +46,7 @@ main() {
   fi
 
   printf "${BLUE}Installing ccock/cut...${NORMAL}\n"
-  env ./gradlew || {
+  env cut/gradlew || {
     printf "Error: install ccock/cut failed.\n"
     exit 1
   }

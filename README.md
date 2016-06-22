@@ -23,19 +23,11 @@ C/C++ are different languages from most modern ones. Writing tests for them has 
   * [cpo](https://github.com/ccock/cut): C++ Programm Options Library.
   * [cum](https://github.com/ccock/cut): C++ Universal Matchers Library.
 
-### Clone Cut
-
-```bash
-$ git clone https://github.com:ccock/cut.git
-```
-
-`${CUT_HOME}` is file path of cloned cut form github.
-
 ## Installing
 
-Cut support 3 intalling method, and I recommend to use Gradle or Rake to install cut.
+Cut support 4 intalling method, and I recommend to use Gradle or Rake to install cut.
 
-- Online
+- Online Installing
 - Using Gradle
 - Using Rake
 - Manual
@@ -47,6 +39,14 @@ $ sh -c "$(curl -fsSL https://raw.github.com/ccock/cut/master/install.sh)"
 ```
 
 ### Installing Using Gradle
+
+##### Clone Cut
+
+```bash
+$ git clone https://github.com:ccock/cut.git
+```
+
+##### Install Cut
 
 You can use `Gradle` to simply procedure of dependency, building, installing, and testing of cut .
 
@@ -78,6 +78,14 @@ $ ./gradlew clean_deps       # remove temp directory, and uninstall all dependen
 
 ### Installing Using Rake
 
+##### Clone Cut
+
+```bash
+$ git clone https://github.com:ccock/cut.git
+```
+
+##### Install Cut
+
 You can use Rake to simply procedure of dependency, building, installing, and testing of cut .
 
 ```bash
@@ -108,9 +116,13 @@ $ rake clean_deps       # remove temp directory, and uninstall all dependencies
 
 ### Manual Installing and Testing
 
-##### Clone Cub
+##### Clone Cut
 
-> Current Path: ${CUT_HOME}
+```bash
+$ git clone https://github.com/ccock/cub.git
+```
+
+##### Clone Cub
 
 ```bash
 $ cd cut/lib
@@ -147,8 +159,6 @@ $ sudo make install
 ```
 
 ##### Test cut
-
-> Current Path: `${CUT_HOME}`
 
 ```bash
 $ cd build

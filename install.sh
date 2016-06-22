@@ -53,9 +53,10 @@ main() {
   }
 
   printf "${GREEN}"
-  echo ' ccock/cut is now installed!'
   echo ''
-  echo 'p.s. Follow us at https://github.com/ccock/cut/README.md'
+  echo 'ccock/cut is now installed!'
+  echo ''
+  echo 'p.s. Follow us at https://github.com/ccock/cut'
   echo ''
   printf "${NORMAL}"
 }

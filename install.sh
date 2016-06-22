@@ -31,6 +31,7 @@ main() {
     printf "Error: git clone of ccock/cut repo failed\n"
     exit 1
   }
+  cd cut
 
   printf "${BLUE}Looking for an existing ccock/cut...${NORMAL}\n"
   if [ -f /usr/local/lib/libcut.a ]; then
@@ -46,7 +47,7 @@ main() {
   fi
 
   printf "${BLUE}Installing ccock/cut...${NORMAL}\n"
-  env cut/gradlew || {
+  env ./gradlew || {
     printf "Error: install ccock/cut failed.\n"
     exit 1
   }

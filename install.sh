@@ -36,10 +36,12 @@ main() {
   if [ -f /usr/local/lib/libcut.a ]; then
     printf "${YELLOW}Found ccock/cut installed.${NORMAL} ${GREEN}Clearing prev version.${NORMAL}\n";
     sudo rm -rf /usr/local/include/cui
+    sudo rm -rf /usr/local/include/cub
     sudo rm -rf /usr/local/include/cut
     sudo rm -rf /usr/local/include/cum
     sudo rm -rf /usr/local/include/cpo
     sudo rm -rf /usr/local/lib/libcut.a
+    sudo rm -rf /usr/local/lib/libcub.a
   fi
 
   cd cut

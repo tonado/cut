@@ -2,7 +2,7 @@
 #define _30KHGDCAF3MOKCBO9D1E7TLHUX8AUQ8FLRZ2MNXSJTX011I7KFOCMGJY
 
 #include <cut/cut.h>
-#include <cub/dci/Role.h>
+#include <cui/dci/Role.h>
 #include <string>
 
 CUT_NS_BEGIN

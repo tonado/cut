@@ -1,7 +1,7 @@
 #ifndef _SAOXDTVZ85W9YDU8WXPQZX5VG9GYC1PRD9KOOAOJADH827VEOLVORP2L               
 #define _SAOXDTVZ85W9YDU8WXPQZX5VG9GYC1PRD9KOOAOJADH827VEOLVORP2L
 
-#include <cub/dci/Role.h>
+#include <cui/dci/Role.h>
 #include <cut/cut.h>
 
 CUT_NS_BEGIN
@@ -12,16 +12,16 @@ struct TestFailure;
 
 DEFINE_ROLE(TestListener)
 {
-    DEFAULT(void, startTest(const Test&));
-    DEFAULT(void, endTest(const Test&));
+    CUI_DEFAULT(void, startTest(const Test&));
+    CUI_DEFAULT(void, endTest(const Test&));
     
-    DEFAULT(void, startSuite(const Test&));
-    DEFAULT(void, endSuite(const Test&));
+    CUI_DEFAULT(void, startSuite(const Test&));
+    CUI_DEFAULT(void, endSuite(const Test&));
     
-    DEFAULT(void, startTestRun(const Test&, TestResult&));
-    DEFAULT(void, endTestRun(const Test&, TestResult&));
+    CUI_DEFAULT(void, startTestRun(const Test&, TestResult&));
+    CUI_DEFAULT(void, endTestRun(const Test&, TestResult&));
     
-    DEFAULT(void, addFailure(const TestFailure&));
+    CUI_DEFAULT(void, addFailure(const TestFailure&));
 };
 
 CUT_NS_END

@@ -3,7 +3,7 @@
 #include <cut/core/TestResult.h>
 #include <cut/ext/RepeatedTest.h>
 #include <cut/auto/TestFactorySuite.h>
-#include <cub/mem/ScopeExit.h>
+#include <cui/mem/ScopeExit.h>
 
 CUT_NS_BEGIN
 

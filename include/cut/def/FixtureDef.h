@@ -1,7 +1,7 @@
 #ifndef HBAD0E026_1661_48E7_B0EE_F3DA07EA24F9
 #define HBAD0E026_1661_48E7_B0EE_F3DA07EA24F9
 
-#include <cub/utils/Symbol.h>
+#include <cui/utils/Symbol.h>
 #include <cut/core/TestFixture.h>
 #include <cut/auto/AutoTestSuite.h>
 

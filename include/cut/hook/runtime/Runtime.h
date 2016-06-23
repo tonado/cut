@@ -1,7 +1,7 @@
 #ifndef H4F0DAA73_78BC_4665_B214_D485ED463BB1
 #define H4F0DAA73_78BC_4665_B214_D485ED463BB1
 
-#include <cub/dci/Role.h>
+#include <cui/dci/Role.h>
 #include <cut/cut.h>
 
 CUT_NS_BEGIN

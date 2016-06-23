@@ -19,7 +19,7 @@ private:
     OVERRIDE(const std::string& getName() const);
 
 private:
-    DEFAULT(void, runTest());
+    CUI_DEFAULT(void, runTest());
 
 private:
     template <typename Functor>

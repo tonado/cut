@@ -2,7 +2,7 @@
 #define H6A8AA0FD_F336_493F_9E77_767862365287
 
 #include <cut/cut.h>
-#include <cub/utils/Symbol.h>
+#include <cui/utils/Symbol.h>
 
 CUT_NS_BEGIN
 

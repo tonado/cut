@@ -3,7 +3,7 @@
 
 #include <cut/core/TestMethod.h>
 #include <cut/core/TestSuite.h>
-#include <cub/utils/TypeName.h>
+#include <cui/utils/TypeName.h>
 #include <set>
 
 CUT_NS_BEGIN
@@ -36,7 +36,7 @@ private:
 
         Test* suite() const
         {
-            auto fixture = new TestSuite(cub::TypeName<Fixture>::value());
+            auto fixture = new TestSuite(cui::TypeName<Fixture>::value());
 
             for (auto& method : registry)
             {

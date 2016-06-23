@@ -4,7 +4,7 @@
 #include <cut/core/TestCaller.h>
 #include <cut/hook/runtime/Runtime.h>
 #include <cut/startup/TestOptions.h>
-#include <cub/utils/TypeName.h>
+#include <cui/utils/TypeName.h>
 #include <iostream>
 
 CUT_NS_BEGIN
@@ -33,7 +33,7 @@ struct TestMethod
 private:
     std::string getFullName() const
     {
-        return cub::TypeName<Fixture>::value() + "::" + name;
+        return cui::TypeName<Fixture>::value() + "::" + name;
     }
 
 private:

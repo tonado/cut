@@ -1,5 +1,5 @@
+#include <cui/algo/__range__.h>
 #include <cut/cut.hpp>
-#include <cui/algo/range.h>
 #include <type_traits>
 
 USING_CUM_NS

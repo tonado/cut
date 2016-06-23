@@ -4,7 +4,7 @@
 #include <cut/cut.h>
 #include <vector>
 #include <string>
-#include <cui/algo/String.h>
+#include <cui/algo/__string__.h>
 
 CUT_NS_BEGIN
 

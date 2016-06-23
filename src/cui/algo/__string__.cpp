@@ -1,5 +1,5 @@
-#include <cui/algo/string.h>
-#include <cui/algo/range.h>
+#include <cui/algo/__range__.h>
+#include <cui/algo/__string__.h>
 
 CUI_NS_BEGIN
 

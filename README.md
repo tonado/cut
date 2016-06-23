@@ -18,19 +18,12 @@ C/C++ are different languages from most modern ones. Writing tests for them has 
   * [GCC] 4.8 or later.
   * [MSVC] not supported.
 
-- Dependences:
-  * [cub](https://github.com/ccock/cub): C++ Unified Base Library.
-  * [cpo](https://github.com/ccock/cut): C++ Programm Options Library.
-  * [cum](https://github.com/ccock/cut): C++ Universal Matchers Library.
-
 ## Installing
 
-Cut support 4 intalling method, and I recommend to use Gradle or Rake to install cut.
+Cut support 2 intalling method.
 
 - Online Installing
-- Using Gradle
-- Using Rake
-- Manual
+- Manual Installing
 
 ### Online Installing
 
@@ -38,119 +31,9 @@ Cut support 4 intalling method, and I recommend to use Gradle or Rake to install
 $ sh -c "$(curl -fsSL https://raw.github.com/ccock/cut/master/install.sh)"
 ```
 
-### Installing Using Gradle
-
-##### Clone Cut
-
-```bash
-$ git clone https://github.com:ccock/cut.git
-```
-
-##### Install Cut
-
-You can use `Gradle` to simply procedure of dependency, building, installing, and testing of cut .
-
-```bash
-$ ./gradlew    # clone_deps, install_deps, install, test_deps, test
-```
-
-##### Gradle Tasks Reference
-
-- Tasks for Cut：
-
-```bash
-$ ./gradlew             # clone_deps, install_deps, install, test_deps, test
-$ ./gradlew install     # install
-$ ./gradlew test        # install, test 
-$ ./gradlew uninstall   # uninstall
-$ ./gradlew clean       # remove temp directory, and uninstall
-```
-
-- Tasks for Dependencies::
-
-```bash
-$ ./gradlew clone_deps       # clone all dependencies
-$ ./gradlew install_deps     # clone, ant install all dependencies
-$ ./gradlew test_deps        # clone, install, and test all dependencies
-$ ./gradlew uninstall_deps   # uninstall all dependencies
-$ ./gradlew clean_deps       # remove temp directory, and uninstall all dependencies
-```
-
-### Installing Using Rake
-
-##### Clone Cut
-
-```bash
-$ git clone https://github.com:ccock/cut.git
-```
-
-##### Install Cut
-
-You can use Rake to simply procedure of dependency, building, installing, and testing of cut .
-
-```bash
-$ rake    # clone_deps, install_deps, install, test_deps, test
-```
-
-##### Rake Tasks Reference
-
-- Tasks for Cut：
-
-```bash
-$ rake             # clone_deps, install_deps, install, test_deps, test
-$ rake install     # install
-$ rake test        # install, test 
-$ rake uninstall   # uninstall
-$ rake clean       # remove temp directory, and uninstall
-```
-
-- Tasks for Dependencies::
-
-```bash
-$ rake clone_deps       # clone all dependencies
-$ rake install_deps     # clone, ant install all dependencies
-$ rake test_deps        # clone, install, and test all dependencies
-$ rake uninstall_deps   # uninstall all dependencies
-$ rake clean_deps       # remove temp directory, and uninstall all dependencies
-```
-
 ### Manual Installing and Testing
 
-##### Clone Cut
-
-```bash
-$ git clone https://github.com/ccock/cub.git
-```
-
-##### Clone Cub
-
-```bash
-$ cd cut/lib
-$ git clone https://github.com/ccock/cub.git
-$ cd cub && mkdir build && cd build
-$ cmake .. && make
-$ sudo make install 
-```
-
 ##### Install Cut
-
-- First, Install Cum：
-
-```bash
-$ cd lib/cum && mkdir build && cd build
-$ cmake .. && make
-$ sudo make install 
-```
-
-- Second, Intall Cpo：
-
-```bash
-$ cd lib/cpo && mkdir build && cd build
-$ cmake .. && make
-$ sudo make install 
-```
-
-- At last, Install Cut：
 
 ```bash
 $ mkdir build && cd build
@@ -214,13 +97,8 @@ test/*.c)
 
 add_executable(quantity-test ${all_files})
 
-target_link_libraries(quantity-test cut cum cpo cub)
+target_link_libraries(quantity-test cut)
 ```
-
-- [cut](https://github.com/ccock/cut): C++ Unified Test Framework.
-- [cub](https://github.com/ccock/cub): C++ Unified Base Library.
-- [cpo](https://github.com/ccock/cut): C++ Programm Options Library.
-- [cum](https://github.com/ccock/cut): C++ Universal Matchers Library.
 
 ##### Build
 

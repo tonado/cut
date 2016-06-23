@@ -1,8 +1,8 @@
 #ifndef HB4FDA3F1_A2B1_407F_922D_FF7A05FBB0D4
 #define HB4FDA3F1_A2B1_407F_922D_FF7A05FBB0D4
 
+#include <cui/algo/__string__.h>
 #include <cum/internal/SelfDescribingContainer.h>
-#include <cui/algo/String.h>
 
 CUM_NS_BEGIN
 

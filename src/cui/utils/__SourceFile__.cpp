@@ -1,4 +1,4 @@
-#include <cui/utils/SourceFile.h>
+#include <cui/utils/__SourceFile__.h>
 #include <sstream>
 
 CUI_NS_BEGIN
@@ -25,7 +25,7 @@ namespace
     }
 }
 
-std::string source_file(const std::string& name, int line, bool absolute)
+std::string sourcefile(const std::string& name, int line, bool absolute)
 {
     std::stringstream ss;
     file(ss, name, absolute) << ":" << line;

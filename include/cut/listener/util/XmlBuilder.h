@@ -1,8 +1,8 @@
 #ifndef HA5559C9B_84A7_4876_BDDD_B95BC2FF503B
 #define HA5559C9B_84A7_4876_BDDD_B95BC2FF503B
 
+#include <cui/algo/__string__.h>
 #include <cut/cut.h>
-#include <cui/algo/String.h>
 
 CUT_NS_BEGIN
 

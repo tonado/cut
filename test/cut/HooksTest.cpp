@@ -27,14 +27,14 @@ FIXTURE(HooksTest)
     
     TEST("should supoort keywards BEFORE_ALL")
     {
-        Runtime::getIntance().ROLE(BeforeAllHookRegistry).execHooks();
+        Runtime::getIntance().CUI_ROLE(BeforeAllHookRegistry).execHooks();
 
         ASSERT_THAT(before_all_stream.str(), is(std::string("AB")));
     }
 
     TEST("should supoort keywards AFTER_ALL")
     {
-        Runtime::getIntance().ROLE(AfterAllHookRegistry).execHooks();
+        Runtime::getIntance().CUI_ROLE(AfterAllHookRegistry).execHooks();
 
         ASSERT_THAT(after_all_stream.str(), is(std::string("CD")));
     }

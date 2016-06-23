@@ -1,6 +1,6 @@
+#include <cui/algo/__range__.h>
 #include <cut/core/TestSuite.h>
 #include <cut/core/TestResult.h>
-#include <cui/algo/range.h>
 
 CUT_NS_BEGIN
 

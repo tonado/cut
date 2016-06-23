@@ -1,14 +1,14 @@
 #ifndef H850C3C7A_82E6_49C1_B47A_4BBB2F6EA3A3
 #define H850C3C7A_82E6_49C1_B47A_4BBB2F6EA3A3
 
-#include <cui/utils/Symbol.h>
+#include <cui/utils/__Symbol__.h>
 #include <cut/auto/TestMethodTraits.h>
 #include <type_traits>
 
 ////////////////////////////////////////////////////////////////////////////////
-#define __TEST_NAME(id)     JOIN(test_, id)
-#define __TEST_TRAITS(id)   JOIN(test_traits_, id)
-#define __TEST_REGISTER(id) JOIN(register_test_, id)
+#define __TEST_NAME(id)     CUI_JOIN(test_, id)
+#define __TEST_TRAITS(id)   CUI_JOIN(test_traits_, id)
+#define __TEST_REGISTER(id) CUI_JOIN(register_test_, id)
 
 ////////////////////////////////////////////////////////////////////////////////
 #define __DEF_TEST(id, name)                                          \
@@ -24,6 +24,6 @@ public:                                                               \
 void __TEST_NAME(id)()
 
 ////////////////////////////////////////////////////////////////////////////////
-#define TEST(name) __DEF_TEST(UNIQUE_ID, name)
+#define TEST(name) __DEF_TEST(CUI_UNIQUE_ID, name)
 
 #endif

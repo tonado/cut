@@ -7,8 +7,8 @@ CUM_NS_BEGIN
 
 struct IsNil : BaseMatcher<const void*>
 {
-    OVERRIDE(bool matches(const void* const& actual) const);
-    OVERRIDE(void describeTo(Description& desc) const);
+    CUI_OVERRIDE(bool matches(const void* const& actual) const);
+    CUI_OVERRIDE(void describeTo(Description& desc) const);
 };
 
 CUM_MATCHER_TAG(IsNil, const void*);

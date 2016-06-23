@@ -5,7 +5,7 @@
 CUT_NS_BEGIN
 
 TestFailure::TestFailure(const TestFunctor& method, Message&& msg, bool failure)
-  : test(method.ROLE(Test)), msg(std::move(msg)), failure(failure)
+  : test(method.CUI_ROLE(Test)), msg(std::move(msg)), failure(failure)
 {}
 
 bool TestFailure::isFailure() const

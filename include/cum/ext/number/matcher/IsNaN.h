@@ -7,8 +7,8 @@ CUM_NS_BEGIN
 
 struct IsNaN : BaseMatcher<double>
 {
-    OVERRIDE(bool matches(const double& actual) const);
-    OVERRIDE(void describeTo(Description& desc) const);
+    CUI_OVERRIDE(bool matches(const double& actual) const);
+    CUI_OVERRIDE(void describeTo(Description& desc) const);
 };
 
 CUM_MATCHER_TAG(IsNaN, double);

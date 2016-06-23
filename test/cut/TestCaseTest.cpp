@@ -19,7 +19,7 @@ namespace
         {}
 
     private:
-        OVERRIDE(void runTest())
+        CUI_OVERRIDE(void runTest())
         {
             functor();
         }
@@ -30,7 +30,7 @@ namespace
 
     struct FakeTestResultCollector : TestListener
     {
-        OVERRIDE(void addFailure(const TestFailure& failure))
+        CUI_OVERRIDE(void addFailure(const TestFailure& failure))
         {
             numOfFail++;
             failure.isFailure() ? numOfFailure++ : numOfError++;

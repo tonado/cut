@@ -1,10 +1,10 @@
 #include <cpo/core/Cmdline.hpp>
 
 #include <cpo/core/OptionsDescription.hpp>
-#include <cui/dci/Role.h>
 #include <cpo/core/OptionsDescription.hpp>
 #include <cpo/core/Option.hpp>
 #include <cpo/core/OptionsDescription.hpp>
+#include <cui/dci/__Role__.h>
 
 using namespace std;
 
@@ -54,16 +54,16 @@ vector<Option> Cmdline::run()
 namespace
 {
 
-    DEFINE_ROLE(Tok)
+    CUI_DEF_ROLE(Tok)
     {
-        ABSTRACT(void parse(string& name, string& adjacent) const);
+        CUI_ABSTRACT(void parse(string& name, string& adjacent) const);
     };
 
     struct LongTok : Tok
     {
         LongTok(const string& tok):tok(tok){}
     private:
-        OVERRIDE(void parse( string& name, string& adjacent) const)
+        CUI_OVERRIDE(void parse( string& name, string& adjacent) const)
         {
              auto  p = tok.find('=');
              if (p != tok.npos)
@@ -150,7 +150,7 @@ namespace
     {
         ShortTok(const string& tok):tok(tok){}
     private:
-        OVERRIDE(void parse(string& name, string& adjacent) const)
+        CUI_OVERRIDE(void parse(string& name, string& adjacent) const)
             {
                 name = tok.substr(0,2);
                 adjacent = tok.substr(2);

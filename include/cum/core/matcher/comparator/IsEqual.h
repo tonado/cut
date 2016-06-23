@@ -1,8 +1,8 @@
 #ifndef H269B7CCF_AE6C_49D4_AEF4_F72B7B3F545B
 #define H269B7CCF_AE6C_49D4_AEF4_F72B7B3F545B
 
+#include <cui/algo/__operator__.h>
 #include <cum/core/matcher/comparator/Comparator.h>
-#include <cui/algo/operator.h>
 
 CUM_NS_BEGIN
 

@@ -3,9 +3,8 @@
 #include <algorithm>
 #include <iostream>
 #include <iomanip>
-#include <cui/algo/String.h>
-
 #include <cpo/core/Parsers.hpp>
+#include <cui/algo/__string__.h>
 
 using namespace std;
 

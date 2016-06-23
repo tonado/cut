@@ -16,16 +16,16 @@ struct TextResultPrinter : TestListener
     ~TextResultPrinter();
 
 private:
-    OVERRIDE(void startTestRun(const Test&, TestResult&));
-    OVERRIDE(void endTestRun(const Test&, TestResult&));
+    CUI_OVERRIDE(void startTestRun(const Test&, TestResult&));
+    CUI_OVERRIDE(void endTestRun(const Test&, TestResult&));
 
-    OVERRIDE(void startSuite(const Test&));
-    OVERRIDE(void endSuite(const Test&));
+    CUI_OVERRIDE(void startSuite(const Test&));
+    CUI_OVERRIDE(void endSuite(const Test&));
 
-    OVERRIDE(void startTest(const Test&));
-    OVERRIDE(void endTest(const Test&));
+    CUI_OVERRIDE(void startTest(const Test&));
+    CUI_OVERRIDE(void endTest(const Test&));
 
-    OVERRIDE(void addFailure(const TestFailure&));
+    CUI_OVERRIDE(void addFailure(const TestFailure&));
 
 private:
     void onTestSucc(const Test& test);

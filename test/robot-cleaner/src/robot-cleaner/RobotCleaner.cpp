@@ -7,7 +7,7 @@ RobotCleaner::RobotCleaner()
 
 void RobotCleaner::exec(Instruction* instruction)
 {
-    instruction->exec(SELF(position, Point), SELF(position, Position));
+    instruction->exec(CUI_SELF(position, Point), CUI_SELF(position, Position));
     delete instruction;
 }
 

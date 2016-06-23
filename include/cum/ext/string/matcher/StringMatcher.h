@@ -14,15 +14,15 @@ protected:
         , const std::string& substring);
 
 private:
-    OVERRIDE(bool matches(const std::string& actual) const);
-    OVERRIDE(void describeTo(Description& desc) const);
-    OVERRIDE(void describeMismatch(const std::string&, Description&) const);
+    CUI_OVERRIDE(bool matches(const std::string& actual) const);
+    CUI_OVERRIDE(void describeTo(Description& desc) const);
+    CUI_OVERRIDE(void describeMismatch(const std::string&, Description&) const);
 
 private:
     std::string converted(const std::string& string) const;
 
 private:
-    ABSTRACT(bool evalOf(const std::string&) const);
+    CUI_ABSTRACT(bool evalOf(const std::string&) const);
 
 protected:
     const bool ignoringCase;

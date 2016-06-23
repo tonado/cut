@@ -23,9 +23,7 @@ Cut是一个简单的、可扩展的、使用C\+\+11实现的xUnit测试框架�
 Cut支持四种方式安装：
 
 - 在线安装
-- Gradle
-- Rake
-- 手动安装与测试
+- 手动安装
 
 因为Cut能够测试自身，为此强烈**推荐**使用「在线安装」，简单，便捷，不易出错。
 
@@ -35,114 +33,7 @@ Cut支持四种方式安装：
 $ sh -c "$(curl -fsSL https://raw.github.com/ccock/cut/master/install.sh)"
 ```
 
-### 使用Gradle
-
-##### 克隆Cut
-
-```bash
-$ git clone https://github.com:ccock/cut.git
-```
-
-##### 安装Cut
-
-使用`Gradle`可简化`Cut`的依赖管理，方便`Cut`的构建，测试，并且使得`Cut`自我测试变得更加方便自如，只需执行如下一条命令即可。
-
-> 使用`./gradlew`，无需事先安装`Gradle` 或者`Groovy`。但是，必须预先安装`JVM`，并配置好`JAVA_HOME`环境变量。
-
-```bash
-$ ./gradlew    # clone_deps, install_deps, install, test_deps, test
-```
-
-##### Gradle任务表
-
-- Cut的Rake任务：
-
-```bash
-$ ./gradlew             # clone_deps, install_deps, install, test_deps, test
-$ ./gradlew install     # install
-$ ./gradlew test        # install, test 
-$ ./gradlew uninstall   # uninstall
-$ ./gradlew clean       # remove temp directory, and uninstall
-```
-
-- 依赖管理的Rake任务:
-
-```bash
-$ ./gradlew clone_deps       # clone all dependencies
-$ ./gradlew install_deps     # clone, ant install all dependencies
-$ ./gradlew test_deps        # clone, install, and test all dependencies
-$ ./gradlew uninstall_deps   # uninstall all dependencies
-$ ./gradlew clean_deps       # remove temp directory, and uninstall all dependencies
-```
-
-### 使用Rake安装
-
-##### 克隆Cut
-
-```bash
-$ git clone https://github.com:ccock/cut.git
-```
-
-##### 安装Cut
-
-使用`Rake`可简化`Cut`的依赖管理，方便`Cut`的构建，测试，并且使得`Cut`自我测试变得更加方便自如，只需执行如下一条命令即可。
-
-```bash
-$ rake    # clone_deps, install_deps, install, test_deps, test
-```
-
-##### Rake任务表
-
-- Cut的Rake任务：
-
-```bash
-$ rake             # clone_deps, install_deps, install, test_deps, test
-$ rake install     # install
-$ rake test        # install, test 
-$ rake uninstall   # uninstall
-$ rake clean       # remove temp directory, and uninstall
-```
-
-- 依赖管理的Rake任务:
-
-```bash
-$ rake clone_deps       # clone all dependencies
-$ rake install_deps     # clone, ant install all dependencies
-$ rake test_deps        # clone, install, and test all dependencies
-$ rake uninstall_deps   # uninstall all dependencies
-$ rake clean_deps       # remove temp directory, and uninstall all dependencies
-```
-
 ### 手动安装和测试Cut
-
-##### 安装依赖
-
-- 安装Cub
-
-```bash
-$ git clone https://github.com/ccock/cub.git lib/cub
-$ cd lib/cub && mkdir build && cd build
-$ cmake .. && make
-$ sudo make install 
-```
-
-- 安装Cum
-
-```bash
-$ cd lib/cum && mkdir build && cd build
-$ cmake .. && make
-$ sudo make install 
-```
-
-- 安装Cpo
-
-```bash
-$ cd lib/cpo && mkdir build && cd build
-$ cmake .. && make
-$ sudo make install 
-```
-
-- 安装Cut
 
 ```bash
 $ mkdir build && cd build
@@ -156,32 +47,6 @@ $ sudo make install
 $ cd build
 $ cmake -DENABLE_TEST=on .. && make
 $ test/cut-test
-```
-
-##### 测试依赖
-
-- 测试Cub
-
-```bash
-$ cd lib/cub/build
-$ cmake -DENABLE_TEST=on .. && make
-$ test/cub-test
-```
-
-- 测试Cum
-
-```bash
-$ cd lib/cum/build
-$ cmake -DENABLE_TEST=on .. && make
-$ test/cum-test
-```
-
-- 测试Cpo
-
-```bash
-$ cd lib/cpo/build
-$ cmake -DENABLE_TEST=on .. && make
-$ test/cpo-test
 ```
 
 ### 破冰之旅
@@ -231,15 +96,12 @@ test/*.c)
 
 add_executable(quantity-test ${all_files})
 
-target_link_libraries(quantity-test cut cum cpo cub)
+target_link_libraries(quantity-test cut)
 ```
 
 其中：
 
 - [cut](https://github.com/ccock/cut): C++ Unified Test Framework.
-- [cub](https://github.com/ccock/cub): C++ Unified Base Library.
-- [cpo](https://github.com/ccock/cut): C++ Programm Options Library.
-- [cum](https://github.com/ccock/cut): C++ Universal Matchers Library.
 
 ##### 构建
 

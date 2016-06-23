@@ -31,26 +31,28 @@ main() {
     printf "Error: git clone of ccock/cut repo failed\n"
     exit 1
   }
-  cd cut
 
   printf "${BLUE}Looking for an existing ccock/cut...${NORMAL}\n"
   if [ -f /usr/local/lib/libcut.a ]; then
     printf "${YELLOW}Found ccock/cut installed.${NORMAL} ${GREEN}Clearing prev version.${NORMAL}\n";
-    sudo rm -rf /usr/local/include/cub
+    sudo rm -rf /usr/local/include/cui
     sudo rm -rf /usr/local/include/cut
     sudo rm -rf /usr/local/include/cum
     sudo rm -rf /usr/local/include/cpo
-    sudo rm -rf /usr/local/lib/libcub.a
     sudo rm -rf /usr/local/lib/libcut.a
-    sudo rm -rf /usr/local/lib/libcum.a
-    sudo rm -rf /usr/local/lib/libcpo.a
   fi
 
-  printf "${BLUE}Installing ccock/cut...${NORMAL}\n"
-  env ./gradlew || {
+  cd cut
+  mkdir build && cd build
+  cmake ..
+
+  printf "${BLUE}Makinging ccock/cut...${NORMAL}\n"
+  env make || {
     printf "Error: install ccock/cut failed.\n"
     exit 1
   }
+
+  sudo make install
 
   printf "${GREEN}"
   echo ''

@@ -1,8 +1,8 @@
 #ifndef _UYLLGSZTJHPGMMFF1H269RIPLKIUOIZDCM6CCXZHMF3ILFT7M69YYX0P               
 #define _UYLLGSZTJHPGMMFF1H269RIPLKIUOIZDCM6CCXZHMF3ILFT7M69YYX0P
 
+#include <cui/algo/__operator__.h>
 #include <cum/core/matcher/comparator/Comparator.h>
-#include <cui/algo/operator.h>
 
 CUM_NS_BEGIN
 

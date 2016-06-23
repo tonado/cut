@@ -17,11 +17,11 @@ namespace
         , Runtime
     {
     private:
-        IMPL_ROLE(BeforeAllHookRegistry);
-        IMPL_ROLE(AfterAllHookRegistry);
-        IMPL_ROLE(TestFactorySuite);
-        IMPL_ROLE(TestOptions);
-        IMPL_ROLE(TestRunner);
+        CUI_IMPL_ROLE(BeforeAllHookRegistry);
+        CUI_IMPL_ROLE(AfterAllHookRegistry);
+        CUI_IMPL_ROLE(TestFactorySuite);
+        CUI_IMPL_ROLE(TestOptions);
+        CUI_IMPL_ROLE(TestRunner);
     };
 }
 

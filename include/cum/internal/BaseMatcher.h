@@ -10,7 +10,7 @@ template <typename T>
 struct BaseMatcher : Matcher<T>
 {
 private:
-    OVERRIDE(void describeMismatch(const T& actual, Description& desc) const)
+    CUI_OVERRIDE(void describeMismatch(const T& actual, Description& desc) const)
     {
         desc.appendText("was ").appendValue(actual);
     }

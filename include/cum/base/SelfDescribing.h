@@ -1,16 +1,16 @@
 #ifndef H5C3598B1_9AA4_4588_8D41_5AC3021257B1
 #define H5C3598B1_9AA4_4588_8D41_5AC3021257B1
 
+#include <cui/dci/__Role__.h>
 #include <cum/cum.h>
-#include <cui/dci/Role.h>
 
 CUM_NS_BEGIN
 
 struct Description;
 
-DEFINE_ROLE(SelfDescribing)
+CUI_DEF_ROLE(SelfDescribing)
 {
-    ABSTRACT(void describeTo(Description& desc) const);
+    CUI_ABSTRACT(void describeTo(Description& desc) const);
 };
 
 CUM_NS_END

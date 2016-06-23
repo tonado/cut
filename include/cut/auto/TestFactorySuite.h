@@ -13,7 +13,7 @@ struct TestFactorySuite : TestFactory
     void addFactory(TestFactory&);
 
 private:
-    OVERRIDE(Test* make());
+    CUI_OVERRIDE(Test* make());
 
 private:
    std::set<TestFactory*> factories;

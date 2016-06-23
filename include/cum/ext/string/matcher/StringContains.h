@@ -10,7 +10,7 @@ struct StringContains : StringMatcher
     StringContains(bool ignoringCase, const std::string& substring);
 
 private:
-    OVERRIDE(bool evalOf(const std::string&) const);
+    CUI_OVERRIDE(bool evalOf(const std::string&) const);
 };
 
 CUM_MATCHER_TAG(StringContains, std::string);

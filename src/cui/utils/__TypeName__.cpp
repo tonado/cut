@@ -1,4 +1,4 @@
-#include <cui/utils/TypeName.h>
+#include <cui/utils/__TypeName__.h>
 
 #if defined(__GNUC__)
 #include <cxxabi.h>

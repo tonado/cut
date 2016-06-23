@@ -1,8 +1,8 @@
 #ifndef H6DE28224_E43F_4689_BA39_491C30F80764
 #define H6DE28224_E43F_4689_BA39_491C30F80764
 
+#include <cui/dci/__Role__.h>
 #include <cut/cut.h>
-#include <cui/dci/Role.h>
 
 CUT_NS_BEGIN
 
@@ -12,7 +12,7 @@ struct TestListener;
 struct TestOptions;
 struct TestFactorySuite;
 
-DEFINE_ROLE(TestRunner)
+CUI_DEF_ROLE(TestRunner)
 {
     bool run();
 
@@ -23,8 +23,8 @@ private:
     TestListener* makeXmlPrinter() const;
 
 private:
-    USE_ROLE(TestOptions);
-    USE_ROLE(TestFactorySuite);
+    CUI_USE_ROLE(TestOptions);
+    CUI_USE_ROLE(TestFactorySuite);
 };
 
 CUT_NS_END

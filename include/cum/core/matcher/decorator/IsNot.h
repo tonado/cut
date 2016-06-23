@@ -18,12 +18,12 @@ struct IsNot : BaseMatcher<T>
     }
 
 private:
-    OVERRIDE(bool matches(const T& actual) const)
+    CUI_OVERRIDE(bool matches(const T& actual) const)
     {
         return !(matcher->matches(actual));
     }
 
-    OVERRIDE(void describeTo(Description& desc) const)
+    CUI_OVERRIDE(void describeTo(Description& desc) const)
     {
         desc.appendText("is not ").appendDescriptionOf(*matcher);
     }

@@ -7,18 +7,18 @@
 
 CUI_NS_BEGIN
 
-#define RANG(c) std::begin(std::forward<Container>(c)), std::end(std::forward<Container>(c))
+#define CUI_RANG(c) std::begin(std::forward<Container>(c)), std::end(std::forward<Container>(c))
 
 template <typename Container, class P>
 inline bool all_of(Container&& c, P pred)
 {
-    return std::all_of(RANG(c), pred);
+    return std::all_of(CUI_RANG(c), pred);
 }
 
 template <typename Container, class P>
 inline bool any_of(Container&& c, P pred)
 {
-    return std::any_of(RANG(c), pred);
+    return std::any_of(CUI_RANG(c), pred);
 }
 
 
@@ -26,7 +26,7 @@ template <typename Container, class P>
 inline auto find_if(Container&& c, P pred)
     -> decltype(std::begin(std::forward<Container>(c)))
 {
-    return std::find_if(RANG(c), pred);
+    return std::find_if(CUI_RANG(c), pred);
 }
 
 template <typename Container, class T>
@@ -39,13 +39,13 @@ inline auto find(Container&& c, const T& t)
 template <typename Container, typename Unary>
 inline Unary each(Container&& c, Unary f)
 {
-    return std::for_each(RANG(c), f);
+    return std::for_each(CUI_RANG(c), f);
 }
 
 template <typename Container, typename OutputIterator, typename Unary>
 inline OutputIterator map(Container&& c, OutputIterator result, Unary f)
 {
-    return std::transform(RANG(c), result, f);
+    return std::transform(CUI_RANG(c), result, f);
 }
 
 template <class Container, class T, class Binary>
@@ -73,7 +73,7 @@ namespace details
 template <typename Container, typename OutputIterator, typename Predicate>
 inline OutputIterator filter(Container&& c, OutputIterator result, Predicate pred)
 {
-    return details::do_filter(RANG(c), result, pred);
+    return details::do_filter(CUI_RANG(c), result, pred);
 }
 
 CUI_NS_END

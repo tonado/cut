@@ -1,5 +1,5 @@
 #include <cum/ext/string/matcher/StringMatcher.h>
-#include <cui/algo/String.h>
+#include <cui/algo/__string__.h>
 
 CUM_NS_BEGIN
 

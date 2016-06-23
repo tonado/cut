@@ -1,10 +1,10 @@
 #ifndef H3175F5B7_3EBF_4468_AED7_8FF395B88AF7
 #define H3175F5B7_3EBF_4468_AED7_8FF395B88AF7
 
+#include <cui/utils/__TypeName__.h>
 #include <cut/core/TestCaller.h>
 #include <cut/hook/runtime/Runtime.h>
 #include <cut/startup/TestOptions.h>
-#include <cui/utils/TypeName.h>
 #include <iostream>
 
 CUT_NS_BEGIN

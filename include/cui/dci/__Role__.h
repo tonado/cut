@@ -30,13 +30,13 @@ CUI_ROLE_PROTO_TYPE(role)                                         \
 namespace details
 {
    template<typename T>
-   struct Object
+   struct __ROLE__
    {
-      virtual ~Object() {}
+      virtual ~__ROLE__() {}
    };
 }
 
-#define CUI_DEF_ROLE(role)  struct role : ::details::Object<role>
+#define CUI_DEF_ROLE(role)  struct role : ::details::__ROLE__<role>
 
 #define CUI_SELF(self, role) static_cast<role&>(self)
 

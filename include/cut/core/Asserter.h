@@ -14,7 +14,7 @@ void assert_that(const U& actual, cum::Matcher<V>* matcher, const std::string& s
 {
     CUI_SCOPE_EXIT([=]{ delete matcher; });
 
-    if (!matcher->matches(actual))
+    if (!matcher->matches(static_cast<V>(actual)))
     {
         cum::Description desc;
         

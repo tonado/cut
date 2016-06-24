@@ -22,7 +22,7 @@ void assert_that(const U& actual, cum::Matcher<V>* matcher, const std::string& s
             .appendDescriptionOf(*matcher)
             .appendText("\n     but: ");
 
-        matcher->describeMismatch(actual, desc);
+        matcher->describeMismatch(static_cast<V>(actual), desc);
 
         throw AssertionError(source, desc.to_s());
     }

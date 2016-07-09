@@ -28,7 +28,7 @@ Cut support 2 intalling method.
 ### Online Installing
 
 ```bash
-$ sh -c "$(curl -fsSL https://raw.github.com/ccock/cut/master/install.sh)"
+$ curl -fsSL https://raw.github.com/ccock/cut/master/install.sh | sh
 ```
 
 ### Manual Installing and Testing

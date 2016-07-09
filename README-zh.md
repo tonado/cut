@@ -30,7 +30,7 @@ Cut支持四种方式安装：
 ### 在线安装
 
 ```bash
-$ sh -c "$(curl -fsSL https://raw.github.com/ccock/cut/master/install.sh)"
+$ curl -fsSL https://raw.github.com/ccock/cut/master/install.sh | sh
 ```
 
 ### 手动安装和测试Cut

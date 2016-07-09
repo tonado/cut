@@ -6,7 +6,7 @@
 
 CUT_NS_BEGIN
 
-TRAIT(UnconditionalHook)
+__TRAIT__(UnconditionalHook)
 {
     __ABSTRACT__(void invoke());
 };

@@ -11,7 +11,7 @@ CUT_NS_BEGIN
 struct TestRunner;
 struct TestListener;
 
-TRAIT(TestOptions)
+__TRAIT__(TestOptions)
 {
     TestOptions();
 

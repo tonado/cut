@@ -8,7 +8,7 @@ CUT_NS_BEGIN
 
 struct Test;
 
-TRAIT(TestFunctor)
+__TRAIT__(TestFunctor)
 {
     __HAS_ROLE__(Test);
     __ABSTRACT__(bool operator()() const);

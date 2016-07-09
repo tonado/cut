@@ -10,7 +10,7 @@ struct Test;
 struct TestResult;
 struct TestFailure;
 
-TRAIT(TestListener)
+__TRAIT__(TestListener)
 {
     __DEFAULT__(void, startTest(const Test&));
     __DEFAULT__(void, endTest(const Test&));

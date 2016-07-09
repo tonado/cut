@@ -8,7 +8,7 @@ CUM_NS_BEGIN
 
 struct Description;
 
-TRAIT(SelfDescribing)
+__TRAIT__(SelfDescribing)
 {
     __ABSTRACT__(void describeTo(Description& desc) const);
 };

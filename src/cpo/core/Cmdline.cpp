@@ -54,7 +54,7 @@ vector<Option> Cmdline::run()
 namespace
 {
 
-    TRAIT(Tok)
+    __TRAIT__(Tok)
     {
         __ABSTRACT__(void parse(string& name, string& adjacent) const);
     };

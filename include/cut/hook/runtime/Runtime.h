@@ -12,7 +12,7 @@ struct TestFactorySuite;
 struct TestOptions;
 struct TestRunner;
 
-TRAIT(Runtime)
+__TRAIT__(Runtime)
 {
     static Runtime& getIntance();
 

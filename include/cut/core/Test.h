@@ -9,7 +9,7 @@ CUT_NS_BEGIN
 
 struct TestResult;
 
-TRAIT(Test)
+__TRAIT__(Test)
 {
     __ABSTRACT__(const std::string& getName () const);
     __ABSTRACT__(int countTestCases() const);

@@ -36,7 +36,7 @@ namespace details
    };
 }
 
-#define TRAIT(trait)  struct trait : ::details::Trait<trait>
+#define __TRAIT__(trait)  struct trait : ::details::Trait<trait>
 
 #define __SELF__(self, trait) static_cast<trait&>(self)
 

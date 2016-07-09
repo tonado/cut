@@ -10,7 +10,7 @@ CPO_NS_BEGIN
 
 struct OptionsDescription;
 
-TRAIT(ParsedOptions)
+__TRAIT__(ParsedOptions)
 {
     __ABSTRACT__(const std::vector<Option>& options() const);
     __ABSTRACT__(const OptionsDescription& description() const);

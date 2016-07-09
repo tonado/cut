@@ -8,7 +8,7 @@ CUT_NS_BEGIN
 
 struct Test;
 
-TRAIT(TestFactory)
+__TRAIT__(TestFactory)
 {
     __ABSTRACT__(Test* make());
 };

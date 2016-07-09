@@ -6,7 +6,7 @@
 
 CUT_NS_BEGIN
 
-TRAIT(TestFixture)
+__TRAIT__(TestFixture)
 {
     __DEFAULT__(void, setUp());
     __DEFAULT__(void, tearDown());

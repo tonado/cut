@@ -12,7 +12,7 @@ struct TestListener;
 struct TestOptions;
 struct TestFactorySuite;
 
-TRAIT(TestRunner)
+__TRAIT__(TestRunner)
 {
     bool run();
 

@@ -7,7 +7,7 @@
 
 ////////////////////////////////////////////////////////////////////////////////
 #define __TEST_NAME(id)     __JOIN__(test_, id)
-#define __TEST_TRAITS(id)   __JOIN__(test_traits_, id)
+#define __TEST___TRAIT__S(id)   __JOIN__(test_traits_, id)
 #define __TEST_REGISTER(id) __JOIN__(register_test_, id)
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -19,7 +19,7 @@ cut::TestMethodTraits __TEST_REGISTER(id)()                      \
     auto test_case = &fixture_type::__TEST_NAME(id);                  \
     return cut::TestMethodTraits(id, test_case, name);           \
 }                                                                     \
-cut::TestMethodTraits __TEST_TRAITS(id) = __TEST_REGISTER(id)(); \
+cut::TestMethodTraits __TEST___TRAIT__S(id) = __TEST_REGISTER(id)(); \
 public:                                                               \
 void __TEST_NAME(id)()
 

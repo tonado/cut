@@ -7,7 +7,7 @@
 struct Point;
 struct Orientation;
 
-TRAIT(Instruction)
+__TRAIT__(Instruction)
 {
     __ABSTRACT__(void exec(Point& point, Orientation& orientation) const);
 };

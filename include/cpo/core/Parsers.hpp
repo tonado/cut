@@ -10,10 +10,10 @@ CPO_NS_BEGIN
 
 struct OptionsDescription;
 
-CUI_DEF_ROLE(ParsedOptions)
+TRAIT(ParsedOptions)
 {
-    CUI_ABSTRACT(const std::vector<Option>& options() const);
-    CUI_ABSTRACT(const OptionsDescription& description() const);
+    __ABSTRACT__(const std::vector<Option>& options() const);
+    __ABSTRACT__(const OptionsDescription& description() const);
 };
 
 struct CommandLineParser : private Cmdline, ParsedOptions{
@@ -24,8 +24,8 @@ struct CommandLineParser : private Cmdline, ParsedOptions{
     const ParsedOptions& run();
 
 private:
-    CUI_OVERRIDE(const std::vector<Option>& options() const);
-    CUI_OVERRIDE(const OptionsDescription& description() const);
+    __OVERRIDE__(const std::vector<Option>& options() const);
+    __OVERRIDE__(const OptionsDescription& description() const);
 
 private:
     std::vector<Option> parsedOptions;

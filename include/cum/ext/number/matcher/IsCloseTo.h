@@ -10,9 +10,9 @@ struct IsCloseTo : BaseMatcher<long double>
     IsCloseTo(long double value, long double delta);
 
 private:
-    CUI_OVERRIDE(bool matches(const long double& actual) const);
-    CUI_OVERRIDE(void describeTo(Description& desc) const);
-    CUI_OVERRIDE(void describeMismatch(const long double&, Description&) const);
+    __OVERRIDE__(bool matches(const long double& actual) const);
+    __OVERRIDE__(void describeTo(Description& desc) const);
+    __OVERRIDE__(void describeMismatch(const long double&, Description&) const);
 
 private:
     long double actualDelta(long double item) const;

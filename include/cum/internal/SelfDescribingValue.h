@@ -15,7 +15,7 @@ struct SelfDescribingValue : SelfDescribing
     {}
 
 private:
-    CUI_OVERRIDE(void describeTo(Description& desc) const); // don't implement.
+    __OVERRIDE__(void describeTo(Description& desc) const); // don't implement.
 
 private:
     const T value;

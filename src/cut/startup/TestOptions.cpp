@@ -63,7 +63,7 @@ inline int TestOptions::help() const
 
 inline int TestOptions::go() const
 {
-    return CUI_ROLE(TestRunner).run() ? EXIT_SUCCESS : EXIT_FAILURE;
+    return __ROLE__(TestRunner).run() ? EXIT_SUCCESS : EXIT_FAILURE;
 }
 
 int TestOptions::run() const

@@ -18,7 +18,7 @@ protected:
     {}
 
 private:
-    CUI_OVERRIDE(void describeTo(Description& desc) const)
+    __OVERRIDE__(void describeTo(Description& desc) const)
     {
         desc.appendText("a value ")
             .appendText(relationship)
@@ -26,12 +26,12 @@ private:
             .appendValue(expected);
     }
 
-    CUI_OVERRIDE(bool matches(const T& actual) const)
+    __OVERRIDE__(bool matches(const T& actual) const)
     {
         return functor(actual, expected);
     }
 
-    CUI_OVERRIDE(void describeMismatch(const T& actual, Description& mismatch) const)
+    __OVERRIDE__(void describeMismatch(const T& actual, Description& mismatch) const)
     {
         mismatch.appendValue(actual)
                 .appendText(" ")

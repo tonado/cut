@@ -54,16 +54,16 @@ vector<Option> Cmdline::run()
 namespace
 {
 
-    CUI_DEF_ROLE(Tok)
+    TRAIT(Tok)
     {
-        CUI_ABSTRACT(void parse(string& name, string& adjacent) const);
+        __ABSTRACT__(void parse(string& name, string& adjacent) const);
     };
 
     struct LongTok : Tok
     {
         LongTok(const string& tok):tok(tok){}
     private:
-        CUI_OVERRIDE(void parse( string& name, string& adjacent) const)
+        __OVERRIDE__(void parse( string& name, string& adjacent) const)
         {
              auto  p = tok.find('=');
              if (p != tok.npos)
@@ -150,7 +150,7 @@ namespace
     {
         ShortTok(const string& tok):tok(tok){}
     private:
-        CUI_OVERRIDE(void parse(string& name, string& adjacent) const)
+        __OVERRIDE__(void parse(string& name, string& adjacent) const)
             {
                 name = tok.substr(0,2);
                 adjacent = tok.substr(2);

@@ -12,7 +12,7 @@ CUT_NS_BEGIN
 template <typename U, typename V>
 void assert_that(const U& actual, cum::Matcher<V>* matcher, const std::string& source)
 {
-    CUI_SCOPE_EXIT([=]{ delete matcher; });
+    __SCOPE_EXIT__([=]{ delete matcher; });
 
     if (!matcher->matches(static_cast<V>(actual)))
     {
@@ -29,7 +29,7 @@ void assert_that(const U& actual, cum::Matcher<V>* matcher, const std::string& s
 }
 
 #define ASSERT_THAT(actual, matcher) \
-    CUT_NS::assert_that(actual, matcher, CUI_FULL_FILE())
+    CUT_NS::assert_that(actual, matcher, __FULL_FILE__())
 
 CUT_NS_END
 

@@ -6,9 +6,9 @@
 #include <type_traits>
 
 ////////////////////////////////////////////////////////////////////////////////
-#define __TEST_NAME(id)     CUI_JOIN(test_, id)
-#define __TEST_TRAITS(id)   CUI_JOIN(test_traits_, id)
-#define __TEST_REGISTER(id) CUI_JOIN(register_test_, id)
+#define __TEST_NAME(id)     __JOIN__(test_, id)
+#define __TEST_TRAITS(id)   __JOIN__(test_traits_, id)
+#define __TEST_REGISTER(id) __JOIN__(register_test_, id)
 
 ////////////////////////////////////////////////////////////////////////////////
 #define __DEF_TEST(id, name)                                          \
@@ -24,6 +24,6 @@ public:                                                               \
 void __TEST_NAME(id)()
 
 ////////////////////////////////////////////////////////////////////////////////
-#define TEST(name) __DEF_TEST(CUI_UNIQUE_ID, name)
+#define TEST(name) __DEF_TEST(__UNIQUE_ID__, name)
 
 #endif

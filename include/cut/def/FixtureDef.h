@@ -8,15 +8,15 @@
 ////////////////////////////////////////////////////////////////////////////////
 #define DEF_FIXTURE(fixture, super)                                \
 struct fixture;                                                    \
-static cut::AutoTestSuite<fixture> CUI_UNIQUE_NAME(auto_suite_);  \
+static cut::AutoTestSuite<fixture> __UNIQUE_NAME__(auto_suite);  \
 struct fixture : super
 
 ////////////////////////////////////////////////////////////////////////////////
 #define FIXTURE(fixture)  DEF_FIXTURE(fixture, cut::TestFixture)
 
 ////////////////////////////////////////////////////////////////////////////////
-#define SETUP()    CUI_OVERRIDE(void setUp())
-#define TEARDOWN() CUI_OVERRIDE(void tearDown())
+#define SETUP()    __OVERRIDE__(void setUp())
+#define TEARDOWN() __OVERRIDE__(void tearDown())
 
 ////////////////////////////////////////////////////////////////////////////////
 #define SUPER_SETUP(super)    super::setUp()

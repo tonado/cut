@@ -12,7 +12,7 @@ struct TestListener;
 struct TestOptions;
 struct TestFactorySuite;
 
-CUI_DEF_ROLE(TestRunner)
+TRAIT(TestRunner)
 {
     bool run();
 
@@ -23,8 +23,8 @@ private:
     TestListener* makeXmlPrinter() const;
 
 private:
-    CUI_USE_ROLE(TestOptions);
-    CUI_USE_ROLE(TestFactorySuite);
+    __USE_ROLE__(TestOptions);
+    __USE_ROLE__(TestFactorySuite);
 };
 
 CUT_NS_END

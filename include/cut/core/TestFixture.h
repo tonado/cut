@@ -6,10 +6,10 @@
 
 CUT_NS_BEGIN
 
-CUI_DEF_ROLE(TestFixture)
+TRAIT(TestFixture)
 {
-    CUI_DEFAULT(void, setUp());
-    CUI_DEFAULT(void, tearDown());
+    __DEFAULT__(void, setUp());
+    __DEFAULT__(void, tearDown());
 };
 
 CUT_NS_END

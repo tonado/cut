@@ -7,9 +7,9 @@
 struct Point;
 struct Orientation;
 
-CUI_DEF_ROLE(Instruction)
+TRAIT(Instruction)
 {
-    CUI_ABSTRACT(void exec(Point& point, Orientation& orientation) const);
+    __ABSTRACT__(void exec(Point& point, Orientation& orientation) const);
 };
 
 Instruction* left();

@@ -12,18 +12,18 @@ struct TestFactorySuite;
 struct TestOptions;
 struct TestRunner;
 
-CUI_DEF_ROLE(Runtime)
+TRAIT(Runtime)
 {
     static Runtime& getIntance();
 
-    CUI_HAS_ROLE(BeforeAllHookRegistry);
-    CUI_HAS_ROLE(AfterAllHookRegistry);
-    CUI_HAS_ROLE(TestFactorySuite);
-    CUI_HAS_ROLE(TestOptions);
-    CUI_HAS_ROLE(TestRunner);
+    __HAS_ROLE__(BeforeAllHookRegistry);
+    __HAS_ROLE__(AfterAllHookRegistry);
+    __HAS_ROLE__(TestFactorySuite);
+    __HAS_ROLE__(TestOptions);
+    __HAS_ROLE__(TestRunner);
 };
 
-#define RUNTIME(type) Runtime::getIntance().CUI_ROLE(type)
+#define RUNTIME(type) Runtime::getIntance().__ROLE__(type)
 
 CUT_NS_END
 

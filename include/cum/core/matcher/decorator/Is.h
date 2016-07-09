@@ -18,17 +18,17 @@ struct Is : BaseMatcher<T>
     }
 
 private:
-    CUI_OVERRIDE(bool matches(const T& actual) const)
+    __OVERRIDE__(bool matches(const T& actual) const)
     {
         return matcher->matches(actual);
     }
 
-    CUI_OVERRIDE(void describeTo(Description& desc) const)
+    __OVERRIDE__(void describeTo(Description& desc) const)
     {
         desc.appendText("is ").appendDescriptionOf(*matcher);
     }
 
-    CUI_OVERRIDE(void describeMismatch(const T& actual, Description& dismatch) const)
+    __OVERRIDE__(void describeMismatch(const T& actual, Description& dismatch) const)
     {
         matcher->describeMismatch(actual, dismatch);
     }

@@ -24,13 +24,13 @@ struct IsIn : BaseMatcher<T>
     {}
 
 private:
-    CUI_OVERRIDE(bool matches(const T& actual) const)
+    __OVERRIDE__(bool matches(const T& actual) const)
     {
         return std::find(begin(container), end(container), actual)
             != end(container);
     }
 
-    CUI_OVERRIDE(void describeTo(Description& desc) const)
+    __OVERRIDE__(void describeTo(Description& desc) const)
     {
         desc.appendText("one of ")
             .appendValueList("{", ", ", "}", container);

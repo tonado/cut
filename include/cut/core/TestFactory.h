@@ -8,9 +8,9 @@ CUT_NS_BEGIN
 
 struct Test;
 
-CUI_DEF_ROLE(TestFactory)
+TRAIT(TestFactory)
 {
-    CUI_ABSTRACT(Test* make());
+    __ABSTRACT__(Test* make());
 };
 
 CUT_NS_END

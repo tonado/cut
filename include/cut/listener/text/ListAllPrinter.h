@@ -11,8 +11,8 @@ struct ListAllPrinter : TestListener
 	ListAllPrinter(std::ostream& = std::cout);
 
 private:
-    CUI_OVERRIDE(void startSuite(const Test&));
-	CUI_OVERRIDE(void startTest(const Test&));
+    __OVERRIDE__(void startSuite(const Test&));
+	__OVERRIDE__(void startTest(const Test&));
 
 private:
     std::ostream& os;

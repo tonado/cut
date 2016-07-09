@@ -10,18 +10,18 @@ struct Test;
 struct TestResult;
 struct TestFailure;
 
-CUI_DEF_ROLE(TestListener)
+TRAIT(TestListener)
 {
-    CUI_DEFAULT(void, startTest(const Test&));
-    CUI_DEFAULT(void, endTest(const Test&));
+    __DEFAULT__(void, startTest(const Test&));
+    __DEFAULT__(void, endTest(const Test&));
     
-    CUI_DEFAULT(void, startSuite(const Test&));
-    CUI_DEFAULT(void, endSuite(const Test&));
+    __DEFAULT__(void, startSuite(const Test&));
+    __DEFAULT__(void, endSuite(const Test&));
     
-    CUI_DEFAULT(void, startTestRun(const Test&, TestResult&));
-    CUI_DEFAULT(void, endTestRun(const Test&, TestResult&));
+    __DEFAULT__(void, startTestRun(const Test&, TestResult&));
+    __DEFAULT__(void, endTestRun(const Test&, TestResult&));
     
-    CUI_DEFAULT(void, addFailure(const TestFailure&));
+    __DEFAULT__(void, addFailure(const TestFailure&));
 };
 
 CUT_NS_END

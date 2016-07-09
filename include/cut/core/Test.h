@@ -9,12 +9,12 @@ CUT_NS_BEGIN
 
 struct TestResult;
 
-CUI_DEF_ROLE(Test)
+TRAIT(Test)
 {
-    CUI_ABSTRACT(const std::string& getName () const);
-    CUI_ABSTRACT(int countTestCases() const);
-    CUI_ABSTRACT(int countChildTests() const);
-    CUI_ABSTRACT(void run(TestResult&));
+    __ABSTRACT__(const std::string& getName () const);
+    __ABSTRACT__(int countTestCases() const);
+    __ABSTRACT__(int countChildTests() const);
+    __ABSTRACT__(void run(TestResult&));
 };
 
 CUT_NS_END

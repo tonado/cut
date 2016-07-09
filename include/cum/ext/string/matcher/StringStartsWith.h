@@ -10,7 +10,7 @@ struct StringStartsWith : StringMatcher
     StringStartsWith(bool ignoringCase, const std::string& substring);
 
 private:
-    CUI_OVERRIDE(bool evalOf(const std::string&) const);
+    __OVERRIDE__(bool evalOf(const std::string&) const);
 };
 
 CUM_MATCHER_TAG(StringStartsWith, std::string);

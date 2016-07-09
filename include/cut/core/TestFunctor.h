@@ -8,10 +8,10 @@ CUT_NS_BEGIN
 
 struct Test;
 
-CUI_DEF_ROLE(TestFunctor)
+TRAIT(TestFunctor)
 {
-    CUI_HAS_ROLE(Test);
-    CUI_ABSTRACT(bool operator()() const);
+    __HAS_ROLE__(Test);
+    __ABSTRACT__(bool operator()() const);
 };
 
 CUT_NS_END

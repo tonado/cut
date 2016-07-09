@@ -43,7 +43,7 @@ namespace details
    };
 }
 
-#define CUI_DEFAULT(type, method)  \
+#define __DEFAULT__(type, method)  \
     virtual type method { return ::CUI_NS::details::DefaultValue<type>::value(); }
 
 CUI_NS_END

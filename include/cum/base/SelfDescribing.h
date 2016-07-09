@@ -8,9 +8,9 @@ CUM_NS_BEGIN
 
 struct Description;
 
-CUI_DEF_ROLE(SelfDescribing)
+TRAIT(SelfDescribing)
 {
-    CUI_ABSTRACT(void describeTo(Description& desc) const);
+    __ABSTRACT__(void describeTo(Description& desc) const);
 };
 
 CUM_NS_END

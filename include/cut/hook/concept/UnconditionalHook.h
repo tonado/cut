@@ -6,9 +6,9 @@
 
 CUT_NS_BEGIN
 
-CUI_DEF_ROLE(UnconditionalHook)
+TRAIT(UnconditionalHook)
 {
-    CUI_ABSTRACT(void invoke());
+    __ABSTRACT__(void invoke());
 };
 
 CUT_NS_END

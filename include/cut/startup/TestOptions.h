@@ -11,7 +11,7 @@ CUT_NS_BEGIN
 struct TestRunner;
 struct TestListener;
 
-CUI_DEF_ROLE(TestOptions)
+TRAIT(TestOptions)
 {
     TestOptions();
 
@@ -37,7 +37,7 @@ private:
     cpo::VariablesMap options;
 
 private:
-    CUI_USE_ROLE(TestRunner);
+    __USE_ROLE__(TestRunner);
 };
 
 CUT_NS_END

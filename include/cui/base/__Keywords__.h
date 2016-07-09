@@ -3,11 +3,11 @@
 
 #include <cui/base/__Default__.h>
 
-#define CUI_ABSTRACT(...) virtual __VA_ARGS__ = 0
-#define CUI_OVERRIDE(...) virtual __VA_ARGS__
+#define __ABSTRACT__(...) virtual __VA_ARGS__ = 0
+#define __OVERRIDE__(...) virtual __VA_ARGS__
 
-#define CUI_EXTENDS(...) , ##__VA_ARGS__
-#define CUI_IMPLEMENTS(...) CUI_EXTENDS(__VA_ARGS__)
+#define __EXTENDS__(...) , ##__VA_ARGS__
+#define __IMPLEMENTS__(...) __EXTENDS__(__VA_ARGS__)
 
 #endif
 

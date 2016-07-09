@@ -13,17 +13,17 @@ struct Anything : BaseMatcher<T>
     {}
 
 private:
-    CUI_OVERRIDE(void describeTo(Description& description) const)
+    __OVERRIDE__(void describeTo(Description& description) const)
     {
         description.appendText(desc);
     }
 
-    CUI_OVERRIDE(bool matches(const T&) const)
+    __OVERRIDE__(bool matches(const T&) const)
     {
         return true;
     }
 
-    CUI_OVERRIDE(void describeMismatch(const T&, Description&) const)
+    __OVERRIDE__(void describeMismatch(const T&, Description&) const)
     {}
 
 private:

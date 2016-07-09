@@ -14,8 +14,8 @@ struct Matcher : SelfDescribing
 {
     using argument_type = T;
 
-    CUI_ABSTRACT(bool matches(const T& actual) const);
-    CUI_ABSTRACT(void describeMismatch(const T& actual, Description& mismatch) const);
+    __ABSTRACT__(bool matches(const T& actual) const);
+    __ABSTRACT__(void describeMismatch(const T& actual, Description& mismatch) const);
 };
 
 CUM_NS_END

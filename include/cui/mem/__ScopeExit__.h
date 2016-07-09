@@ -25,8 +25,8 @@ ScopeExit<F> make_scope_exit(F f)
     return ScopeExit<F>(f);
 };
 
-#define CUI_SCOPE_EXIT(code) \
-    auto CUI_UNIQUE_NAME(scope_exit_) = ::CUI_NS::make_scope_exit(code)
+#define __SCOPE_EXIT__(code) \
+    auto __UNIQUE_NAME__(scope_exit) = ::CUI_NS::make_scope_exit(code)
 
 CUI_NS_END
 

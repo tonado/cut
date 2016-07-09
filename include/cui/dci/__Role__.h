@@ -3,42 +3,42 @@
 
 #include <cui/base/__Keywords__.h>
 
-#define CUI_ROLE(role) get##role()
-#define CUI_ROLE_PROTO_TYPE(role) role& CUI_ROLE(role) const
-#define CUI_USE_ROLE(role) virtual CUI_ROLE_PROTO_TYPE(role) = 0
-#define CUI_HAS_ROLE(role) CUI_USE_ROLE(role)
+#define __ROLE__(role) get##role()
+#define __ROLE_PROTO_TYPE__(role) role& __ROLE__(role) const
+#define __USE_ROLE__(role) virtual __ROLE_PROTO_TYPE__(role) = 0
+#define __HAS_ROLE__(role) __USE_ROLE__(role)
 
 //////////////////////////////////////////////////////////////////
-#define CUI_IMPL_ROLE(role)                                       \
-CUI_ROLE_PROTO_TYPE(role)                                         \
+#define __IMPL_ROLE__(role)                                       \
+__ROLE_PROTO_TYPE__(role)                                         \
 {                                                             \
    return const_cast<role&>(static_cast<const role&>(*this)); \
 }
 
 //////////////////////////////////////////////////////////////////////////
-#define CUI_DECL_ROLE(role) CUI_ROLE_PROTO_TYPE(role)
+#define __DECL_ROLE__(role) __ROLE_PROTO_TYPE__(role)
 
 //////////////////////////////////////////////////////////////////////////
-#define __CUI_ROLE_CAST_TO(role, obj)       \
+#define __ROLE_CAST_TO__(role, obj)       \
     return const_cast<role&>(static_cast<const role&>(obj))
 
 //////////////////////////////////////////////////////////////////////////
-#define CUI_IMPL_ROLE_WITH_OBJ(role, obj)   \
-    CUI_DECL_ROLE(role)  { __CUI_ROLE_CAST_TO(role, obj); }
+#define __IMPL_ROLE_WITH_OBJ__(role, obj)   \
+    __DECL_ROLE__(role)  { __ROLE_CAST_TO__(role, obj); }
 
 /////////////////////////////////////////////////////////////////////////////
 namespace details
 {
    template<typename T>
-   struct __ROLE__
+   struct Trait
    {
-      virtual ~__ROLE__() {}
+      virtual ~Trait() {}
    };
 }
 
-#define CUI_DEF_ROLE(role)  struct role : ::details::__ROLE__<role>
+#define TRAIT(trait)  struct trait : ::details::Trait<trait>
 
-#define CUI_SELF(self, role) static_cast<role&>(self)
+#define __SELF__(self, trait) static_cast<trait&>(self)
 
 #endif
 
